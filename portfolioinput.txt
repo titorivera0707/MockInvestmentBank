@@ -1,0 +1,8 @@
+Stock Netflix 100.50 100
+Stock Google 982.55 200
+Bond CALMUNI 34.77 100 4.5
+Bond LACity 10.57 150 3.7
+SavingsAccount USBank 6789123 2500 2.8
+SavingsAccount CITI 123456 9400.50 3.1
+CheckingAccount Federal 565412 1000. 1.1 500. .50
+CheckingAccount  CreditCal 556701 2000 .8 400 .35

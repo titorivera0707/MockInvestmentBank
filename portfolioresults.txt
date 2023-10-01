@@ -1,0 +1,33 @@
+Results of the portfolio Computer Student over 60 months
+Investment: Stock Name: Netflix
+Price Per Share: $1,114.41 Number Of Shares: 285.01
+Current Value: $317,618.14 Investment Earnings to date: 171,190.24
+
+Investment: Stock Name: Google
+Price Per Share: $3,800.91 Number Of Shares: 425.44
+Current Value: $1,617,064.95 Investment Earnings to date: 881,154.50
+
+Investment: Bond Name: CALMUNI
+Price Per Bond: $34.77 Number Of Bonds: 100 
+Current Value: $4,259.33 Cash On Hand To Date: $782.33
+
+Investment: Bond Name: LACity
+Price Per Bond: $10.57 Number Of Bonds: 150 
+Current Value: $1,878.82 Cash On Hand To Date: $293.32
+
+Investment: SavingsAccount Name: USBank Account Number: 6789123
+Current value: $36.94 Interest Earned: $19.94
+
+Investment: SavingsAccount Name: CITI Account Number: 123456
+Current value: $151.01 Interest Earned: $146.65
+
+Investment: CheckingAccount Name: Federal Account Number: 565412
+Minimum For Free Checking: $500.00 Check Charge: $0.50
+Current value: $22,388.40 Interest Earned: $700.38 Check Charges: $0.00
+
+Investment: CheckingAccount Name: CreditCal Account Number: 556701
+Minimum For Free Checking: $400.00 Check Charge: $0.35
+Current value: $26,780.71 Interest Earned: $517.04 Check Charges: $0.00
+
+
+The total value of all the investments is $1990178.30
