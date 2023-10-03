@@ -40,6 +40,50 @@ public class Portfolio{
         openFile.close();
     }
 
+    public void modelPortfolio(int months){
+        for(Investment invested: portfolioInvestments){
+            if(invested instanceof Stock){
+                for (int i = 0; i < months; i+=3) {
+                    Stock tempStock = (Stock) invested;
+                    double priceChange = randy.nextInt(-11,201)/10;
+                    double dividendPercent = randy.nextInt(0,51)/10;
+                    tempStock.calcStockValues(priceChange, dividendPercent);
+                }
+            }else if(invested instanceof Bond){
+                Bond tempBond = (Bond) invested;
+                tempBond.calcBondValues();
+            }else if(invested instanceof SavingsAccount){
+                SavingsAccount tempSavings = (SavingsAccount) invested;
+                for (int i = 0; i < months; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        double depWith = randy.nextInt(-60000, 1000001)/100;
+                        if(depWith > 0){
+                            tempSavings.makeDeposit(depWith);
+                        }else if(depWith < 0){
+                            tempSavings.makeWithdrawal(depWith);
+                        }else continue;
+                    }
+                }
+                tempSavings.calcValue();
+            }else if(invested instanceof CheckingAccount){
+                CheckingAccount tempChecking = (CheckingAccount) invested;
+                double ranDeposit = randy.nextInt(5000,15000)/10;
+                tempChecking.makeDeposit(ranDeposit);
+                for (int i = 0; i < months; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        double writeCheck = randy.nextInt(100, 30001)/100;
+                        tempChecking.writeCheck(writeCheck);
+                    }
+                    tempChecking.calcValue();
+                }
+            }
+        }
+    }
+
+    public void generatePortfolioReport(int months){
+
+    }
+
     public File fileChecker(){
         Scanner newKey = new Scanner(System.in);
         File newUserFile = new File("");
