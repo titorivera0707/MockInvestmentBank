@@ -15,63 +15,76 @@ public class Portfolio{
     public Portfolio(String name, int seed) {
         super();
         portfolioName = name;
-        randy.setSeed(seed);
+        randy = new Random(seed);
     }
 
+    public String getPortfolioName() {
+        return portfolioName;
+    }
+    public void setPortfolioName(String portfolioName) {
+        this.portfolioName = portfolioName;
+    }
     public void initializePortfolio()throws IOException{
-        Scanner openFile = new Scanner(fileChecker());
+        Scanner openFile = new Scanner(fileChecker("input"));
         while(openFile.hasNext()){
             Investment tempInvestment;
-            String[] strArray = openFile.next().split(" ");
-            if(strArray[0].equals("Stock")){
-                tempInvestment = new Stock(strArray[1], Double.parseDouble(strArray[2]),Double.parseDouble(strArray[3]));
+            ArrayList<String> temoArr = new ArrayList<String>();
+            String strArray = openFile.nextLine();
+            Scanner newScan = new Scanner(strArray);
+            while(newScan.hasNext()){
+                temoArr.add(newScan.next());
+            }
+            //Use openfile.nextLine then use has scanner on new String to use next
+            if(temoArr.get(0).equals("Stock")){
+                tempInvestment = new Stock(temoArr.get(1), Double.parseDouble(temoArr.get(2)),Double.parseDouble(temoArr.get(3)));
                 portfolioInvestments.add(tempInvestment);
-            }else if(strArray[0].equals("Bond")){
-                tempInvestment = new Bond(strArray[1], Double.parseDouble(strArray[2]), Integer.parseInt(strArray[3]), Double.parseDouble(strArray[4]));
+            }else if(temoArr.get(0).equals("Bond")){
+                tempInvestment = new Bond(temoArr.get(1), Double.parseDouble(temoArr.get(2)), Integer.parseInt(temoArr.get(3)), Double.parseDouble(temoArr.get(4)));
                 portfolioInvestments.add(tempInvestment);
-            }else if(strArray[0].equals("SavingsAccount")){
-                tempInvestment = new SavingsAccount(strArray[1], strArray[2], Double.parseDouble(strArray[3]), Double.parseDouble(strArray[4]));
+            }else if(temoArr.get(0).equals("SavingsAccount")){
+                tempInvestment = new SavingsAccount(temoArr.get(1), temoArr.get(2), Double.parseDouble(temoArr.get(3)), Double.parseDouble(temoArr.get(4)));
                 portfolioInvestments.add(tempInvestment);
             }else{
-                tempInvestment = new CheckingAccount(strArray[1], strArray[2], Double.parseDouble(strArray[3]), Double.parseDouble(strArray[4]), Double.parseDouble(strArray[5]), Double.parseDouble(strArray[6]));
+                tempInvestment = new CheckingAccount(temoArr.get(1), temoArr.get(2), Double.parseDouble(temoArr.get(3)), Double.parseDouble(temoArr.get(4)), Double.parseDouble(temoArr.get(5)), Double.parseDouble(temoArr.get(6)));
                 portfolioInvestments.add(tempInvestment);
             }
         }
-        openFile.close();
     }
 
     public void modelPortfolio(int months){
         for(Investment invested: portfolioInvestments){
             if(invested instanceof Stock){
+                Stock tempStock = (Stock) invested;
                 for (int i = 0; i < months; i+=3) {
-                    Stock tempStock = (Stock) invested;
-                    double priceChange = randy.nextInt(-11,201)/10;
+                    double priceChange = randy.nextInt(-100,201)/10;
                     double dividendPercent = randy.nextInt(0,51)/10;
                     tempStock.calcStockValues(priceChange, dividendPercent);
                 }
             }else if(invested instanceof Bond){
-                Bond tempBond = (Bond) invested;
-                tempBond.calcBondValues();
+                for (int i = 0; i < months; i++) {
+                    Bond tempBond = (Bond) invested;
+                    tempBond.calcBondValues();   
+                }
             }else if(invested instanceof SavingsAccount){
                 SavingsAccount tempSavings = (SavingsAccount) invested;
-                for (int i = 0; i < months; i++) {
+                for (int i = 1; i < months; i++) {
                     for (int j = 0; j < 3; j++) {
-                        double depWith = randy.nextInt(-60000, 1000001)/100;
-                        if(depWith > 0){
+                        double depWith = randy.nextInt(-60000, 100001)/100;
+                        if(depWith >= 0){
                             tempSavings.makeDeposit(depWith);
                         }else if(depWith < 0){
-                            tempSavings.makeWithdrawal(depWith);
+                            tempSavings.makeWithdrawal(Math.abs(depWith));
                         }else continue;
                     }
+                    tempSavings.calcValue();
                 }
-                tempSavings.calcValue();
             }else if(invested instanceof CheckingAccount){
                 CheckingAccount tempChecking = (CheckingAccount) invested;
-                double ranDeposit = randy.nextInt(5000,15000)/10;
-                tempChecking.makeDeposit(ranDeposit);
                 for (int i = 0; i < months; i++) {
+                    double ranDeposit = randy.nextInt(5000,15001)/10;
+                    tempChecking.makeDeposit(ranDeposit);
                     for (int j = 0; j < 4; j++) {
-                        double writeCheck = randy.nextInt(100, 30001)/100;
+                        double writeCheck = randy.nextInt(1000, 30001)/100;
                         tempChecking.writeCheck(writeCheck);
                     }
                     tempChecking.calcValue();
@@ -80,15 +93,20 @@ public class Portfolio{
         }
     }
 
-    public void generatePortfolioReport(int months){
-
+    public void generatePortfolioReport(int months)throws IOException{
+        PrintWriter newWriter = new PrintWriter(fileChecker("output"));
+        newWriter.println("Results of the portfolio " + portfolioName + " over "+ months + " months");
+        for(Investment tempInv: portfolioInvestments){
+            newWriter.println(tempInv.toString());
+        }
+        newWriter.close();
     }
 
-    public File fileChecker(){
+    public File fileChecker(String inOut){
         Scanner newKey = new Scanner(System.in);
         File newUserFile = new File("");
         do{
-            System.out.println(String.format("Please enter the name of the input file: "));
+            System.out.println(String.format("Please enter the name of the "+ inOut +" file: "));
             String fileName = newKey.nextLine();
             File tempFile = new File(fileName);
             if(tempFile.exists()){

@@ -1,4 +1,4 @@
-Results of the portfolio Computer Student over 60 months
+open Results of the portfolio Computer Student over 60 months
 Investment: Stock Name: Netflix
 Price Per Share: $1,114.41 Number Of Shares: 285.01
 Current Value: $317,618.14 Investment Earnings to date: 171,190.24
@@ -16,10 +16,10 @@ Price Per Bond: $10.57 Number Of Bonds: 150
 Current Value: $1,878.82 Cash On Hand To Date: $293.32
 
 Investment: SavingsAccount Name: USBank Account Number: 6789123
-Current value: $36.94 Interest Earned: $19.94
+Current value: $45,132.87 Interest Earned: $3,468.15
 
 Investment: SavingsAccount Name: CITI Account Number: 123456
-Current value: $151.01 Interest Earned: $146.65
+Current value: $46,533.56 Interest Earned: $4,888.59
 
 Investment: CheckingAccount Name: Federal Account Number: 565412
 Minimum For Free Checking: $500.00 Check Charge: $0.50
@@ -30,4 +30,4 @@ Minimum For Free Checking: $400.00 Check Charge: $0.35
 Current value: $26,780.71 Interest Earned: $517.04 Check Charges: $0.00
 
 
-The total value of all the investments is $1990178.30
+The total value of all the investments is $2081656.77

@@ -3,7 +3,7 @@
 public class SavingsAccount extends BankAccount{
 
     private double annualInterestRatePercent;
-    private double rate = (annualInterestRatePercent/12)/100;
+    private double rate;
     private double totalInterestEarned;
 
     public SavingsAccount() {
@@ -19,6 +19,7 @@ public class SavingsAccount extends BankAccount{
     }
     public void setAnnualInterestRatePercent(double annualInterestRatePercent) {
         this.annualInterestRatePercent = annualInterestRatePercent;
+        rate = (annualInterestRatePercent/100);
     }
     public double getTotalInterestEarned() {
         return totalInterestEarned;
@@ -28,26 +29,26 @@ public class SavingsAccount extends BankAccount{
     }
 
     public void makeDeposit(double deposit){
-        setInvestmentValue(deposit + getInvestmentValue());
+        super.setInvestmentValue(deposit + getInvestmentValue());
     }
 
     public boolean makeWithdrawal(double withdrawal){
         if(withdrawal > getInvestmentValue()){
-            System.out.println("There are insufficient funds");
+            //System.out.println("There are insufficient funds");
             return false;
         }else{
-            setInvestmentValue(getInvestmentValue() - withdrawal);
+            super.setInvestmentValue(getInvestmentValue() - withdrawal);
             return true;
         }
     }
 
     public void calcValue(){
-        totalInterestEarned = getInvestmentValue() * rate;
-        setInvestmentValue(totalInterestEarned + getInvestmentValue());
+        totalInterestEarned += (getInvestmentValue() * rate/12);
+        setInvestmentValue((getInvestmentValue()*rate/12) + getInvestmentValue());
     }
     @Override
     public String toString() {
-        return String.format("%s\nCurrent value: $%.2f Interest Earned: $%.2f", super.toString(), getInvestmentValue(), totalInterestEarned);
+        return String.format("%s\nCurrent value: $%,.2f Interest Earned: $%,.2f\n", super.toString(), getInvestmentValue(), totalInterestEarned);
     }
 
     

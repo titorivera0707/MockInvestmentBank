@@ -19,6 +19,7 @@ public class CheckingAccount extends BankAccount{
         setInvestmentValue(initialDeposit);
         setMinimumCheckFreeBalance(minimumCheckFreeBalance);
         setCheckCharge(checkCharge);
+        setAnnualInterestRatePercent(annualInterestRatePercentage);
     }
 
     public double getAnnualInterestRatePercent() {
@@ -68,7 +69,7 @@ public class CheckingAccount extends BankAccount{
 
     public void writeCheck(double checkValue){
         if(checkValue > getInvestmentValue()){
-            System.out.println("There are insufficient funds");
+            //System.out.println("There are insufficient funds");
         }else if(getInvestmentValue() >= minimumCheckFreeBalance){
             setInvestmentValue(getInvestmentValue() - checkValue);
         }else{
@@ -79,7 +80,7 @@ public class CheckingAccount extends BankAccount{
 
     public void calcValue(){
         if(getInvestmentValue() >= minimumCheckFreeBalance){
-            double interest = getInvestmentValue() * (rate/12);
+            double interest = (getInvestmentValue() *(rate/12));
             totalInterestEarned += interest;
             setInvestmentValue(getInvestmentValue() + interest);
             
@@ -88,7 +89,7 @@ public class CheckingAccount extends BankAccount{
 
     @Override
     public String toString() {
-        return String.format("%s\nCurrent value: $%.2f Interest Earned: $%.2f", super.toString(), getInvestmentValue(), totalInterestEarned);
+        return String.format("%s\nMinimum For Free Checking: $%,.2f Check Charge: $%,.2f\nCurrent value: $%,.2f Interest Earned: $%,.2f Check Charges: $%,.2f\n", super.toString(), getMinimumCheckFreeBalance(), getCheckCharge(), getInvestmentValue(), totalInterestEarned, totalCheckCharges);
     }
 
 }

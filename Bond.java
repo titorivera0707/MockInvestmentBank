@@ -15,7 +15,7 @@ public class Bond extends Investment{
         super("Bond", name);
         this.pricePerBond = pricePerBond;
         this.numBondsOwned = numBondsOwned;
-        this.annualReturnPercentage = annualReturnPercentage;
+        setAnnualReturnPercentage(annualReturnPercentage);
         super.setInvestmentValue(pricePerBond*numBondsOwned);
     }
 
@@ -45,13 +45,13 @@ public class Bond extends Investment{
     }
 
     public void calcBondValues(){
-        cashEarnedToDate += pricePerBond*rate;
+        cashEarnedToDate += pricePerBond*rate*numBondsOwned;
         super.setInvestmentValue(pricePerBond*numBondsOwned+cashEarnedToDate);
     }
 
     @Override
     public String toString() {
-        return String.format("\n%sPrice Per Bond: $%.2f Number Of Bonds: $%.2f\nCurrent Value: $%.2f Investment Earnings to date: $%.2f", super.toString(), pricePerBond, numBondsOwned, super.getInvestmentValue(), cashEarnedToDate);
+        return String.format("%s\nPrice Per Bond: $%,.2f Number Of Bonds: %d\nCurrent Value: $%,.2f Cash on Hand to Date: $%,.2f\n", super.toString(), pricePerBond, numBondsOwned, super.getInvestmentValue(), cashEarnedToDate);
     }
 
     

@@ -4,15 +4,16 @@ public class Stock extends Investment{
     private double pricePerShare;
     private double numOfSharesOwned;
     private double dividendsEarnedToDate;
+    
 
     public Stock() {
         super();
     }
     public Stock(String name, double pricePerShare, double numOfSharesOwned) {
         super("Stock", name);
-        this.pricePerShare = pricePerShare;
-        this.numOfSharesOwned = numOfSharesOwned;
-        super.setInvestmentValue(pricePerShare*numOfSharesOwned);
+        setPricePerShare(pricePerShare);;
+        setNumOfSharesOwned(numOfSharesOwned);;
+        setInvestmentValue(pricePerShare*numOfSharesOwned);
     }
     public double getPricePerShare() {
         return pricePerShare;
@@ -28,18 +29,17 @@ public class Stock extends Investment{
     }
 
     public void calcStockValues(double priceChange, double dividendPercent){
-        double currentDividend;
         pricePerShare += priceChange;
-        currentDividend = pricePerShare * dividendPercent;
-        dividendsEarnedToDate += currentDividend * numOfSharesOwned;
-        if(currentDividend > 0){
-            numOfSharesOwned += (dividendsEarnedToDate/pricePerShare);
+        double currentDividend = ((pricePerShare * dividendPercent)/100);
+        dividendsEarnedToDate += (currentDividend * numOfSharesOwned);
+        if(pricePerShare > 0){
+            numOfSharesOwned += (currentDividend*numOfSharesOwned/pricePerShare);
         }
-        super.setInvestmentValue(pricePerShare*numOfSharesOwned);
+        setInvestmentValue(numOfSharesOwned * pricePerShare);
     }
     @Override
     public String toString() {
-        return String.format("\n%sPrice Per Share: $%.2f Number Of Shares: $%.2f\nCurrent Value: $%.2f Investment Earnings to date: $%.2f", super.toString(), pricePerShare, numOfSharesOwned, super.getInvestmentValue(), dividendsEarnedToDate*pricePerShare);
+        return String.format("%s\nPrice Per Share: $%,.2f Number Of Shares: %,.2f\nCurrent Value: $%,.2f Investment Earnings to date: $%,.2f\n", super.toString(), pricePerShare, numOfSharesOwned, getInvestmentValue(), dividendsEarnedToDate);
     }
 
 }

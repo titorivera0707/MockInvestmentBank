@@ -1,0 +1,31 @@
+Results of the portfolio ifhwf over 60 months
+Investment: Stock Name: Netflix
+Price Per Share: $168.50 Number Of Shares: 137.13
+Current Value: $23,107.04 Investment Earnings to date: $5,520.51
+
+Investment: Stock Name: Google
+Price Per Share: $1,058.55 Number Of Shares: 308.58
+Current Value: $326,642.31 Investment Earnings to date: $111,686.20
+
+Investment: Bond Name: CALMUNI
+Price Per Bond: $34.77 Number Of Bonds: 100
+Current Value: $4,259.33 Cash on Hand to Date: $782.33
+
+Investment: Bond Name: LACity
+Price Per Bond: $10.57 Number Of Bonds: 150
+Current Value: $1,878.82 Cash on Hand to Date: $293.32
+
+Investment: Savings Account Name: USBank Account Number: 6789123
+Current value: $40,221.62 Interest Earned: $3,156.62
+
+Investment: Savings Account Name: CITI Account Number: 123456
+Current value: $64,159.71 Interest Earned: $5,922.21
+
+Investment: Checking Account Name: Federal Account Number: 565412
+Minimum For Free Checking: $500.00 Check Charge: $0.50
+Current value: $23,451.42 Interest Earned: $715.42 Check Charges: $0.00
+
+Investment: Checking Account Name: CreditCal Account Number: 556701
+Minimum For Free Checking: $400.00 Check Charge: $0.35
+Current value: $28,008.46 Interest Earned: $620.46 Check Charges: $0.00
+
