@@ -1,11 +1,11 @@
-Results of the portfolio ihfe over 60 months
+Results of the portfolio fijef over 60 months
 Investment: Stock Name: Netflix
-Price Per Share: $168.50 Number Of Shares: 137.13
-Current Value: $23,107.04 Investment Earnings to date: $5,520.51
+Price Per Share: $173.50 Number Of Shares: 145.44
+Current Value: $25,234.50 Investment Earnings to date: $6,364.08
 
 Investment: Stock Name: Google
-Price Per Share: $1,058.55 Number Of Shares: 308.58
-Current Value: $326,642.31 Investment Earnings to date: $111,686.20
+Price Per Share: $1,104.55 Number Of Shares: 293.54
+Current Value: $324,232.16 Investment Earnings to date: $97,690.02
 
 Investment: Bond Name: CALMUNI
 Price Per Bond: $34.77 Number Of Bonds: 100
@@ -16,16 +16,19 @@ Price Per Bond: $10.57 Number Of Bonds: 150
 Current Value: $1,878.82 Cash on Hand to Date: $293.32
 
 Investment: Savings Account Name: USBank Account Number: 6789123
-Current value: $40,221.62 Interest Earned: $3,156.62
+Current value: $41,221.85 Interest Earned: $2,875.85
 
 Investment: Savings Account Name: CITI Account Number: 123456
-Current value: $64,159.71 Interest Earned: $5,922.21
+Current value: $49,967.35 Interest Earned: $4,329.85
 
 Investment: Checking Account Name: Federal Account Number: 565412
 Minimum For Free Checking: $500.00 Check Charge: $0.50
-Current value: $23,451.42 Interest Earned: $715.42 Check Charges: $0.00
+Current value: $22,538.53 Interest Earned: $653.53 Check Charges: $0.00
 
 Investment: Checking Account Name: CreditCal Account Number: 556701
 Minimum For Free Checking: $400.00 Check Charge: $0.35
-Current value: $28,008.46 Interest Earned: $620.46 Check Charges: $0.00
+Current value: $26,442.69 Interest Earned: $576.69 Check Charges: $0.00
 
+
+
+The total value of all the investments is $495775.22

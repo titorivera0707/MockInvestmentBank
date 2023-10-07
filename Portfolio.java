@@ -96,9 +96,12 @@ public class Portfolio{
     public void generatePortfolioReport(int months)throws IOException{
         PrintWriter newWriter = new PrintWriter(fileChecker("output"));
         newWriter.println("Results of the portfolio " + portfolioName + " over "+ months + " months");
+        double totalValues=0;
         for(Investment tempInv: portfolioInvestments){
+            totalValues += tempInv.getInvestmentValue();
             newWriter.println(tempInv.toString());
         }
+        newWriter.println(String.format("\n\nThe total value of all the investments is $%.2f", totalValues));
         newWriter.close();
     }
 
