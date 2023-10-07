@@ -13,8 +13,8 @@ public abstract class Investment{
 
     public Investment(String type, String name) {
         super();
-        this.type = type;
-        this.name = name;
+        setType(type);
+        setName(name);
     }
 
     public String getType() {

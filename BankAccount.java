@@ -8,7 +8,7 @@ public abstract class BankAccount extends Investment{
     }
     public BankAccount(String type, String name, String accountNumber) {
         super(type, name);
-        this.accountNumber = accountNumber;
+        setAccountNumber(accountNumber);
     }
     public String getAccountNumber() {
         return accountNumber;

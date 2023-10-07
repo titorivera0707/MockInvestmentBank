@@ -13,10 +13,10 @@ public class Bond extends Investment{
 
     public Bond(String name, double pricePerBond, int numBondsOwned, double annualReturnPercentage) {
         super("Bond", name);
-        this.pricePerBond = pricePerBond;
-        this.numBondsOwned = numBondsOwned;
+        setPricePerBond(pricePerBond);
+        setNumBondsOwned(numBondsOwned);
         setAnnualReturnPercentage(annualReturnPercentage);
-        super.setInvestmentValue(pricePerBond*numBondsOwned);
+        setInvestmentValue(pricePerBond*numBondsOwned);
     }
 
     public double getPricePerBond() {

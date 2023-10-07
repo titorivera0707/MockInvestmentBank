@@ -14,7 +14,7 @@ public class Portfolio{
     }
     public Portfolio(String name, int seed) {
         super();
-        portfolioName = name;
+        setPortfolioName(name);
         randy = new Random(seed);
     }
 
